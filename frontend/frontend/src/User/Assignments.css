@@ -1,0 +1,32 @@
+.assignment-page{
+margin-left:260px;
+padding:110px 30px 30px;
+min-height:100vh;
+background:#f5f7fb;
+transition:.3s;
+}
+
+.assignment-page.expanded{
+margin-left:80px;
+}
+
+.assignment-card{
+background:#fff;
+padding:20px;
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.assignment-card h3{
+margin-bottom:10px;
+}
+
+.assignment-card span{
+background:#021049;
+color:#fff;
+padding:5px 12px;
+border-radius:20px;
+display:inline-block;
+margin-top:10px;
+}

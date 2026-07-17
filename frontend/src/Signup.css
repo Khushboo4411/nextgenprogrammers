@@ -1,0 +1,644 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+.signup-page{
+  min-height:100vh;
+  margin-top:80px;
+  background:linear-gradient(
+    135deg,
+    #02083f 0%,
+    #04107e 50%,
+    #14005a 100%
+  );
+}
+
+/* Main Layout */
+
+.signup-main-content{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:100px;
+  padding:30px;
+}
+
+/* Left Section */
+
+.signup-left-section{
+  flex:1;
+  max-width:380px;
+  color:white;
+}
+
+.signup-left-section h2{
+  margin-top:50px;
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+.signup-left-section p{
+  font-size:15px;
+  color:#e0e0e0;
+  line-height:1.7;
+}
+
+/* Illustration */
+
+.signup-card-illustration{
+  position:relative;
+  margin-top:30px;
+  margin-left:50px;
+  width:120px;
+  height:120px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.signup-card{
+  width:65px;
+  height:75px;
+  background:rgba(255,255,255,.08);
+  border-radius:15px;
+  padding:15px;
+}
+
+.signup-circle{
+  width:15px;
+  height:15px;
+  background:white;
+  border-radius:50%;
+}
+
+.signup-line{
+  width:30px;
+  height:3px;
+  background:#6ea8ff;
+  margin-top:12px;
+  border-radius:20px;
+}
+
+.signup-small{
+  width:20px;
+}
+
+.signup-plus-btn{
+  position:absolute;
+  right:-8px;
+  bottom:18px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#2666ff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* Features */
+
+.signup-features{
+  margin-top:40px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+.signup-feature{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.signup-feature svg{
+  background:rgba(255,255,255,.1);
+  padding:10px;
+  border-radius:10px;
+  font-size:40px;
+}
+
+/* Form */
+
+.signup-form-container{
+  flex:1;
+  width:100%;
+  min-width:350px;
+  max-width:350px;
+  background:white;
+  border-radius:20px;
+  padding:15px 30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  transition:all .3s ease;
+}
+
+/* OTP generate hone se pehle */
+
+.signup-form-container.otp-closed{
+  margin-top:70px;
+  padding:55px 30px;
+  
+}
+
+/* OTP generate hone ke baad */
+
+.signup-form-container.otp-open{
+  margin-top:25px;
+  padding:25px 30px;
+}
+
+.signup-form-container h3{
+  font-size:28px;
+  color:#072362;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.signup-form-container p{
+  font-size:14px;
+  text-align:center;
+  color:#666;
+  margin-bottom:20px;
+}
+
+/* Labels */
+
+.signup-form-container label{
+  display:block;
+  font-size:14px;
+  margin-bottom:5px;
+  color:#333;
+  font-weight:500;
+}
+
+/* Input Box */
+
+.signup-input-box{
+  height:40px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:0 12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+  transition:.3s;
+}
+
+.signup-input-box:focus-within{
+  border-color:#041d7f;
+}
+
+.signup-input-box svg{
+  color:#777;
+  font-size:14px;
+}
+
+.signup-input-box input{
+  width:100%;
+  border:none;
+  outline:none;
+  font-size:14px;
+  background:transparent;
+}
+
+/* Terms & Conditions */
+
+.signup-checkbox{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.signup-checkbox input{
+  width:16px;
+  height:16px;
+  margin-top:3px;
+  cursor:pointer;
+}
+
+.signup-checkbox span{
+  font-size:13px;
+  color:#555;
+  line-height:1.5;
+}
+
+.signup-checkbox a{
+  color:#1b5cff;
+  text-decoration:none;
+}
+
+/* Main Button */
+
+.signup-submit-btn{
+  width:100%;
+  height:40px;
+  border:none;
+  border-radius:10px;
+  background:#041d7f;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.signup-submit-btn:hover{
+  background:#0629a8;
+}
+
+.signup-submit-btn:disabled{
+  background:#94a3b8;
+  cursor:not-allowed;
+}
+
+/* Send OTP Button */
+
+/* OTP Container */
+
+.otp-wrapper{
+  margin-top:15px;
+}
+
+/* OTP Input Box */
+
+.otp-input-box{
+  display:flex;
+  align-items:center;
+  padding:4px;
+  height:50px;
+  border:1px solid #dcdcdc;
+  border-radius:12px;
+  background:#fff;
+  margin-bottom:15px;
+}
+
+.otp-input-box input{
+  flex:1;
+  border:none;
+  outline:none;
+  padding:0 15px;
+  font-size:18px;
+  letter-spacing:4px;
+  text-align:center;
+  font-weight:600;
+}
+
+/* Verify Button Inside Input */
+
+.otp-verify-inline{
+  height:38px;
+  min-width:90px;
+  border:none;
+  border-radius:8px;
+  background:#16a34a;
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.otp-verify-inline:hover{
+  background:#15803d;
+}
+
+.otp-verify-inline:disabled{
+  background:#94a3b8;
+  cursor:not-allowed;
+}
+/* OTP Section */
+
+.otp-container{
+  margin-top:15px;
+}
+
+.otp-input{
+  height:42px;
+  margin-bottom:12px;
+}
+
+.otp-input input{
+  text-align:center;
+  font-size:18px;
+  letter-spacing:4px;
+  font-weight:600;
+}
+
+/* Verify OTP */
+
+.verify-otp-btn{
+  width:100%;
+  height:42px;
+  border:none;
+  border-radius:10px;
+  background:#16a34a;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+  margin-bottom:15px;
+}
+
+.verify-otp-btn:hover{
+  background:#15803d;
+}
+
+.verify-otp-btn:disabled{
+  background:#94a3b8;
+  cursor:not-allowed;
+}
+
+/* OTP Messages */
+
+.otp-success{
+  margin:15px 0;
+  padding:12px;
+  background:#d4edda;
+  color:#155724;
+  border-radius:8px;
+  text-align:center;
+  font-size:14px;
+  font-weight:600;
+}
+
+.otp-error{
+  margin:15px 0;
+  padding:12px;
+  background:#f8d7da;
+  color:#721c24;
+  border-radius:8px;
+  text-align:center;
+  font-size:14px;
+  font-weight:600;
+}
+
+
+
+
+/* Bottom Login Text */
+
+.signup-signin-text{
+  text-align:center;
+  margin-top:18px;
+  color:#666;
+  font-size:14px;
+}
+
+.signup-signin-text span{
+  color:#1b5cff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.signup-signin-text span:hover{
+  text-decoration:underline;
+}
+
+/* Loading Buttons */
+
+.signup-submit-btn:disabled,
+.send-otp-btn:disabled,
+.verify-otp-btn:disabled{
+  opacity:.7;
+}
+
+/* ==========================
+   Laptop (1200px)
+========================== */
+@media (max-width:1200px){
+
+  .signup-main-content{
+    gap:60px;
+    padding:40px 25px;
+  }
+
+  .signup-left-section{
+    max-width:450px;
+  }
+
+  .signup-left-section h2{
+    font-size:38px;
+  }
+
+}
+
+
+/* ==========================
+   Tablet (992px)
+========================== */
+@media (max-width:992px){
+
+  .signup-page{
+    margin-top:80px;
+  }
+
+  .signup-main-content{
+    flex-direction:column;
+    align-items:center;
+    gap:45px;
+    padding:35px 20px;
+  }
+
+  .signup-left-section{
+    max-width:700px;
+    text-align:center;
+  }
+
+  .signup-left-section h2{
+    margin-top:20px;
+    font-size:36px;
+  }
+
+  .signup-card-illustration{
+    margin:30px auto;
+  }
+
+  .signup-features{
+    align-items:center;
+  }
+
+  .signup-feature{
+    justify-content:center;
+  }
+
+  .signup-form-container{
+    width:100%;
+    max-width:450px;
+  }
+
+}
+
+
+/* ==========================
+   Mobile (768px)
+========================== */
+@media (max-width:768px){
+
+  .signup-page{
+    margin-top:80px;
+  }
+
+  .signup-main-content{
+    padding:20px 15px;
+    gap:35px;
+  }
+
+  .signup-left-section h2{
+    font-size:30px;
+    margin-top:0;
+  }
+
+  .signup-left-section p{
+    font-size:14px;
+  }
+
+  .signup-card-illustration{
+    width:100px;
+    height:100px;
+  }
+
+  .signup-card{
+    width:55px;
+    height:65px;
+  }
+
+  .signup-feature{
+    gap:12px;
+  }
+
+  .signup-feature svg{
+    font-size:34px;
+  }
+
+  .signup-form-container{
+    width:100%;
+    min-width:100%;
+    max-width:100%;
+    padding:25px 20px;
+  }
+
+  .signup-form-container.otp-open,
+  .signup-form-container.otp-closed{
+    margin-top:0;
+    padding:25px 20px;
+  }
+
+  .otp-input-box{
+    flex-direction:column;
+    height:auto;
+    gap:10px;
+    padding:12px;
+  }
+
+  .otp-input-box input{
+    width:100%;
+    text-align:center;
+    letter-spacing:3px;
+  }
+
+  .otp-verify-inline{
+    width:100%;
+  }
+
+}
+
+
+/* ==========================
+   Small Mobile (576px)
+========================== */
+@media (max-width:576px){
+
+  .signup-page{
+    margin-top:80px;
+  }
+
+  .signup-main-content{
+    padding:15px;
+  }
+
+  .signup-left-section h2{
+    font-size:26px;
+  }
+
+  .signup-left-section p{
+    font-size:13px;
+  }
+
+  .signup-form-container h3{
+    font-size:24px;
+  }
+
+  .signup-form-container p{
+    font-size:13px;
+  }
+
+  .signup-input-box{
+    height:44px;
+  }
+
+  .signup-submit-btn,
+  .verify-otp-btn{
+    height:44px;
+    font-size:14px;
+  }
+
+  .signup-checkbox{
+    align-items:flex-start;
+  }
+
+  .signup-checkbox span{
+    font-size:12px;
+  }
+
+}
+
+
+/* ==========================
+   Extra Small Mobile (400px)
+========================== */
+@media (max-width:400px){
+
+  .signup-left-section h2{
+    font-size:22px;
+  }
+
+  .signup-card-illustration{
+    width:85px;
+    height:85px;
+  }
+
+  .signup-card{
+    width:45px;
+    height:55px;
+  }
+
+  .signup-form-container{
+    padding:20px 15px;
+  }
+
+  .signup-form-container h3{
+    font-size:22px;
+  }
+
+  .otp-input-box input{
+    font-size:16px;
+    letter-spacing:2px;
+  }
+
+}

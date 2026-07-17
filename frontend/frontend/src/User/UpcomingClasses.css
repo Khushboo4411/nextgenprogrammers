@@ -1,0 +1,23 @@
+.upcoming-page{
+margin-left:260px;
+padding:110px 30px 30px;
+min-height:100vh;
+background:#f5f7fb;
+transition:.3s;
+}
+
+.upcoming-page.expanded{
+margin-left:80px;
+}
+
+.class-card{
+background:#fff;
+padding:20px;
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.class-card h3{
+margin-bottom:10px;
+}

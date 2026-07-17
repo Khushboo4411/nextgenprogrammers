@@ -1,0 +1,70 @@
+
+.course-form-page{
+  min-height:100vh;
+  background:#f8fafc;
+  padding:120px 20px 40px;
+  display:flex;
+  justify-content:center;
+}
+
+.course-form-card{
+  width:100%;
+  max-width:900px;
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+  display:grid;
+  gap:15px;
+}
+
+.course-form-card h2{
+  text-align:center;
+  color:#021049;
+  margin-bottom:10px;
+}
+
+.course-form-card input,
+.course-form-card textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  outline:none;
+  font-size:15px;
+}
+
+.course-form-card input:focus,
+.course-form-card textarea:focus{
+  border-color:#3f51b5;
+}
+
+.course-form-card textarea{
+  min-height:120px;
+  resize:none;
+}
+
+.save-course-btn{
+  border:none;
+  background:#22c55e;
+  color:white;
+  padding:12px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.save-course-btn:hover{
+  background:#16a34a;
+}
+
+@media(max-width:768px){
+
+  .course-form-card{
+    padding:20px;
+  }
+}
+

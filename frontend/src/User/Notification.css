@@ -1,0 +1,301 @@
+.user-notification-page {
+  margin-left: 260px;
+  margin-top: 80px;
+  padding: 30px;
+  min-height: 100vh;
+  background: #f5f7fb;
+  transition: all 0.3s ease;
+}
+
+.user-notification-page.user-expanded {
+  margin-left: 80px;
+}
+
+/* Header */
+
+.user-notification-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.user-notification-header h1 {
+   background: #021049;
+  color: #fff;
+  text-align: center;
+  padding: 18px 25px;
+  margin: 20px auto 30px;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 1200px;
+
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  box-shadow: 0 10px 25px rgba(2, 16, 73, 0.2);
+  transition: all 0.3s ease;
+}
+
+.user-notification-header p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.user-notification-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+/* Buttons */
+
+.user-read-all-btn,
+.user-clear-btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.user-read-all-btn {
+  background: #021049;
+}
+
+.user-clear-btn {
+  background: #e53935;
+}
+
+.user-read-all-btn:hover,
+.user-clear-btn:hover {
+  opacity: 0.9;
+}
+
+/* Notification List */
+
+.user-notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Notification Card */
+
+.user-notification-card {
+  background: white;
+  padding: 18px 22px;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px
+    rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.user-notification-card:hover {
+  transform: translateY(-3px);
+}
+
+.user-unread {
+  border-left: 6px solid
+    #ffc107;
+}
+
+.user-read {
+  opacity: 0.8;
+}
+
+/* Card Top */
+
+.user-notification-top {
+  display: flex;
+  justify-content:
+    space-between;
+  align-items: center;
+}
+
+.user-notification-top h3 {
+  color: #021049;
+  margin-bottom: 8px;
+}
+
+/* Content */
+
+.user-notification-card p {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.user-notification-card small {
+  color: #888;
+}
+
+/* Badge */
+
+.user-new-badge {
+  background: #ffc107;
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Empty State */
+
+.user-no-notification {
+  background: white;
+  padding: 50px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px
+    rgba(0, 0, 0, 0.08);
+}
+
+.user-no-notification h3 {
+  color: #666;
+}
+
+/* ==========================
+   LARGE TABLET
+========================== */
+@media (max-width:992px){
+
+  .user-notification-page{
+    margin-left:80px;
+    padding:90px 20px 25px;
+  }
+
+  .user-notification-page.user-expanded{
+    margin-left:0;
+  }
+
+  .user-notification-header h1{
+    width:100%;
+    margin:0 0 20px;
+    padding:18px 20px;
+    font-size:28px;
+  }
+
+  .user-notification-actions{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+}
+
+/* ==========================
+   TABLET & MOBILE
+========================== */
+@media (max-width:768px){
+
+  .user-notification-page,
+  .user-notification-page.user-expanded{
+    margin-left:0;
+    padding:85px 15px 20px;
+  }
+
+  .user-notification-header{
+    margin-bottom:20px;
+  }
+
+  .user-notification-header h1{
+    width:100%;
+    margin:0 0 15px;
+    padding:16px;
+    font-size:24px;
+    border-radius:14px;
+  }
+
+  .user-notification-header p{
+    font-size:14px;
+    margin-bottom:18px;
+  }
+
+  .user-notification-actions{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .user-read-all-btn,
+  .user-clear-btn{
+    width:100%;
+    padding:12px;
+    font-size:14px;
+  }
+
+  .user-notification-card{
+    padding:16px;
+  }
+
+  .user-notification-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .user-notification-top h3{
+    font-size:18px;
+  }
+
+  .user-notification-card p{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .user-new-badge{
+    align-self:flex-start;
+  }
+
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+@media (max-width:480px){
+
+  .user-notification-page{
+    padding:80px 12px 18px;
+  }
+
+  .user-notification-header h1{
+    font-size:21px;
+    padding:15px;
+  }
+
+  .user-notification-header p{
+    font-size:13px;
+  }
+
+  .user-notification-card{
+    padding:14px;
+    border-radius:12px;
+  }
+
+  .user-notification-top h3{
+    font-size:16px;
+  }
+
+  .user-notification-card p{
+    font-size:13px;
+  }
+
+  .user-notification-card small{
+    font-size:12px;
+  }
+
+  .user-new-badge{
+    font-size:11px;
+    padding:4px 8px;
+  }
+
+  .user-no-notification{
+    padding:35px 20px;
+  }
+
+  .user-no-notification h3{
+    font-size:18px;
+  }
+
+}

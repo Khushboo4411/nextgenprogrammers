@@ -1,0 +1,91 @@
+.students-page{
+  margin-top:80px;
+  margin-left:280px;
+  padding:30px;
+  min-height:100vh;
+  background:#f8fafc;
+  transition:.3s ease;
+}
+
+.students-page.expanded{
+  margin-left:0;
+}
+
+.students-page h1{
+   text-align: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #021049;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+ 
+}
+
+.students-table-wrapper{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.students-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.students-table th{
+  background: #021049;
+  
+  color:white;
+  padding:16px;
+  text-align:left;
+}
+
+.students-table td{
+  padding:15px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.students-table tr:hover{
+  background:#f8fafc;
+}
+
+.student-img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+
+.delete-student-btn{
+  border:none;
+  background:#ef4444;
+  color:white;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+  transition:.3s;
+}
+
+.delete-student-btn:hover{
+  background:#dc2626;
+}
+
+@media(max-width:768px){
+
+  .students-page{
+    margin-left:0;
+    padding:15px;
+  }
+
+  .students-table-wrapper{
+    overflow-x:auto;
+  }
+}

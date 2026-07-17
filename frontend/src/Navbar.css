@@ -1,0 +1,222 @@
+/* Navbar */
+
+.signup-navbar {
+  height: 80px;
+  width: 100%;
+  background: #00091f;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 50px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.signup-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.signup-logo-icon {
+  font-size: 28px;
+}
+
+.signup-logo h3 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.signup-nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  color: white;
+  font-size: 14px;
+}
+
+
+.signup-nav-link {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.signup-nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Active page effect */
+.signup-nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.signup-nav-buttons {
+  display: flex;
+  gap: 12px;
+ 
+}
+
+.signup-login-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #555;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-login-btn:hover {
+  background: white;
+  color: #04107e;
+}
+
+.signup-enroll-btn {
+  background: #ffc107;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-enroll-btn:hover {
+  background: #ffb300;
+}
+
+/* =======================
+   TABLET (992px)
+======================= */
+@media (max-width:992px){
+
+  .signup-navbar{
+    padding:0 25px;
+  }
+
+  .signup-nav-links{
+    gap:20px;
+    font-size:13px;
+  }
+
+  .signup-nav-buttons{
+    gap:8px;
+  }
+
+  .signup-login-btn,
+  .signup-enroll-btn{
+    padding:8px 16px;
+    font-size:13px;
+  }
+
+  .signup-logo h3{
+    font-size:20px;
+  }
+
+}
+
+
+/* =======================
+   MOBILE (768px)
+======================= */
+@media (max-width:768px){
+
+  .signup-navbar{
+    height:80px;
+    padding:0 15px;
+    flex-wrap:nowrap;
+  }
+
+  .signup-nav-links{
+    gap:10px;
+    font-size:12px;
+  }
+
+  .signup-nav-buttons{
+    gap:6px;
+  }
+
+  .signup-login-btn,
+  .signup-enroll-btn{
+    padding:8px 12px;
+    font-size:12px;
+  }
+
+  .signup-logo h3{
+    font-size:18px;
+  }
+
+}
+
+/* =======================
+   SMALL MOBILE (480px)
+======================= */
+@media (max-width:480px){
+
+  .signup-navbar{
+    padding:12px;
+  }
+
+  .signup-logo h3{
+    font-size:18px;
+  }
+
+  .signup-logo-icon{
+    font-size:24px;
+  }
+
+  .signup-nav-links{
+    gap:12px;
+    font-size:12px;
+  }
+
+  .signup-login-btn,
+  .signup-enroll-btn{
+    width:140px;
+    padding:10px;
+    font-size:13px;
+  }
+
+}
+
+@media (max-width:992px){
+
+  .signup-navbar{
+    padding:0 15px;
+  }
+
+  .signup-logo h3{
+    font-size:18px;
+  }
+
+  .signup-logo-icon{
+    font-size:22px;
+  }
+
+  .signup-nav-links{
+    gap:12px;
+    font-size:12px;
+  }
+
+  .signup-login-btn,
+  .signup-enroll-btn{
+    padding:7px 10px;
+    font-size:12px;
+  }
+
+}

@@ -1,0 +1,294 @@
+/* ===========================
+   Dashboard Layout
+=========================== */
+
+.admin-dashboard-content{
+  margin-left:280px;
+  padding:100px 30px 30px;
+  transition:all .3s ease;
+  background:#f5f7fb;
+  min-height:100vh;
+}
+
+.admin-sidebar.admin-collapsed
+~ .admin-dashboard-content{
+  margin-left:80px;
+}
+
+/* ===========================
+   Common Width
+=========================== */
+
+.admin-dashboard-grid,
+.admin-action-grid,
+.admin-welcome-card,
+.admin-section-title{
+  width:100%;
+  max-width:1400px;
+  margin:auto;
+}
+
+/* ===========================
+   Welcome Card
+=========================== */
+
+.admin-welcome-card{
+  background:linear-gradient(
+    135deg,
+    #021049,
+    #283593
+  );
+  color:white;
+  padding:35px;
+  border-radius:20px;
+  margin-bottom:30px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
+}
+
+.admin-welcome-card h1{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.admin-welcome-card p{
+  font-size:16px;
+  line-height:1.7;
+  opacity:.9;
+}
+
+/* ===========================
+   Section Title
+=========================== */
+
+.admin-section-title{
+  font-size:34px;
+  text-decoration:underline;
+  font-weight:700;
+  color:#0f172a;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+/* ===========================
+   Quick Actions
+=========================== */
+
+.admin-action-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(4,1fr);
+  gap:20px;
+  margin-bottom:35px;
+}
+
+.admin-action-card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.05);
+}
+
+.admin-action-card:hover{
+  transform:translateY(-5px);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.admin-action-card svg{
+  font-size:35px;
+  color:#4f46e5;
+  margin-bottom:15px;
+}
+
+.admin-action-card h3{
+  color:#0f172a;
+  margin-bottom:8px;
+}
+
+.admin-action-card p{
+  color:#64748b;
+  font-size:14px;
+}
+
+/* ===========================
+   Dashboard Grid
+=========================== */
+
+.admin-dashboard-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(2,1fr);
+  gap:25px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.admin-card{
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.05);
+}
+
+.admin-card-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.admin-card-header svg{
+  color:#4f46e5;
+  font-size:20px;
+}
+
+.admin-card-header h3{
+  color:#0f172a;
+  font-size:20px;
+}
+
+.admin-card ul{
+  list-style:none;
+  padding:0;
+}
+
+.admin-card li{
+  padding:12px 0;
+  border-bottom:
+    1px solid #eef2f7;
+  color:#475569;
+  cursor: pointer;
+}
+
+.admin-card li:last-child{
+  border:none;
+}
+
+/* ===========================
+   Recent Activity
+=========================== */
+
+.recent-activity-list{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-height:350px;
+  overflow-y:auto;
+  padding-right:5px;
+}
+
+.recent-activity-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.recent-activity-list::-webkit-scrollbar-thumb{
+  background:#cbd5e1;
+  border-radius:20px;
+}
+
+.activity-item{
+  background:#f8fafc;
+  padding:15px;
+  border-radius:12px;
+  border-left:
+    4px solid #4f46e5;
+  transition:.3s;
+}
+
+.activity-item:hover{
+  background:#eef2ff;
+}
+
+.activity-item h4{
+  margin:0 0 8px;
+  color:#021049;
+  font-size:15px;
+}
+
+.activity-item p{
+  margin:0 0 8px;
+  color:#475569;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.activity-item small{
+  color:#94a3b8;
+  font-size:12px;
+}
+
+/* ===========================
+   Stats
+=========================== */
+
+.admin-stats{
+  display:grid;
+  grid-template-columns:
+    repeat(2,1fr);
+  gap:20px;
+}
+
+.admin-stats div{
+  background:#f8fafc;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.admin-stats h2{
+  color:#021049;
+  margin-bottom:6px;
+}
+
+.admin-stats span{
+  color:#64748b;
+  font-size:14px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:1200px){
+
+  .admin-action-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .admin-dashboard-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:768px){
+
+  .admin-dashboard-content{
+    margin-left:0;
+    padding:90px 15px 20px;
+  }
+
+  .admin-action-grid{
+    grid-template-columns:1fr;
+  }
+
+  .admin-dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .admin-welcome-card h1{
+    font-size:26px;
+  }
+
+  .admin-card{
+    padding:18px;
+  }
+}

@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+/* ================= PAGE WRAPPER ================= */
+
+.why-page {
+  width: 100%;
+}
+
+/* ================= HERO SECTION ================= */
+
+.why-hero {
+  background: linear-gradient(135deg, #020b52 0%, #021042 100%);
+  color: white;
+  padding: 70px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  height :400px;
+}
+
+.why-hero-content {
+  max-width: 500px;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+.why-hero-content h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.why-hero-content h1 span {
+  color: #6c63ff;
+}
+
+.why-hero-content p {
+  font-size: 16px;
+  margin: 15px 0 25px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.why-hero-btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  background: #6c63ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.why-hero-btn:hover {
+  transform: translateY(-4px);
+}
+
+.why-hero-image {
+  margin-top: 40px;
+  margin-right: 80px;
+  width: 450px;
+  height:250px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
+}
+
+.why-hero-image:hover {
+  transform: scale(1.03);
+}
+
+/* ================= FEATURES ================= */
+
+.why-features {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.why-features h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.why-feature-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.why-feature-card {
+  width: 220px;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.why-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.why-feature-card h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.why-feature-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.why-feature-card p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ================= LEARNING JOURNEY ================= */
+
+.why-journey {
+  background: linear-gradient(135deg, #020b52 0%, #021042 100%);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.why-journey h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.why-timeline {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.why-step {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.why-step:hover {
+  background: white;
+  color: #1e4dff;
+  transform: translateY(-4px);
+}
+
+/* ================= STATS ================= */
+
+.why-stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.why-stat-box {
+  text-align: center;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  min-width: 180px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.why-stat-box:hover {
+  transform: translateY(-6px);
+}
+
+.why-stat-box h1 {
+  font-size: 34px;
+  color: #1e4dff;
+}
+
+.why-stat-box p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* ================= CTA SECTION ================= */
+
+.why-cta {
+  background: linear-gradient(135deg, #020b52 0%, #021042 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.why-cta h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.why-cta p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.why-cta-btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  background: white;
+  color: #1e4dff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.why-cta-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .why-hero {
+    text-align: center;
+    justify-content: center;
+    padding: 50px 20px;
+  }
+
+  .why-hero-content h1 {
+    font-size: 34px;
+  }
+
+  .why-hero-content p {
+    font-size: 14px;
+  }
+
+  .why-hero-image {
+    width: 100%;
+    max-width: 320px;
+    margin-top: 20px;
+  }
+
+  .why-feature-grid,
+  .why-stats,
+  .why-timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .why-feature-card,
+  .why-stat-box {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .why-cta h1 {
+    font-size: 24px;
+  }
+}

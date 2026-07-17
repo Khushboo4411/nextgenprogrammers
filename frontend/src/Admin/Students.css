@@ -1,0 +1,210 @@
+.students-page{
+  margin-top:80px;
+  margin-left:280px;
+  padding:30px;
+  min-height:100vh;
+  background:#f8fafc;
+  transition:.3s ease;
+}
+
+.students-page.expanded{
+  margin-left:0;
+}
+
+.students-page h1{
+   text-align: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #021049;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+ 
+}
+
+.students-table-wrapper{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.students-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.students-table th{
+  background: #021049;
+  
+  color:white;
+  padding:16px;
+  text-align:left;
+}
+
+.students-table td{
+  padding:15px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.students-table tr:hover{
+  background:#f8fafc;
+}
+
+.student-img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+
+.delete-student-btn{
+  border:none;
+  background:#ef4444;
+  color:white;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+  transition:.3s;
+}
+
+.delete-student-btn:hover{
+  background:#dc2626;
+}
+
+/* ==========================
+   LARGE LAPTOP (1200px)
+========================== */
+@media (max-width:1200px){
+
+  .students-page{
+    margin-left:250px;
+    padding:25px;
+  }
+
+}
+
+
+/* ==========================
+   TABLET (992px)
+========================== */
+@media (max-width:992px){
+
+  .students-page{
+    margin-left:0;
+    margin-top:80px;
+    padding:20px;
+  }
+
+  .students-page h1{
+    font-size:24px;
+    padding:12px;
+  }
+
+  .students-table-wrapper{
+    overflow-x:auto;
+    border-radius:15px;
+  }
+
+  .students-table{
+    min-width:800px;
+  }
+
+  .students-table th,
+  .students-table td{
+    padding:12px;
+    font-size:14px;
+  }
+
+  .student-img{
+    width:40px;
+    height:40px;
+  }
+
+}
+
+
+/* ==========================
+   MOBILE (768px)
+========================== */
+@media (max-width:768px){
+
+  .students-page{
+    margin-left:0;
+    margin-top:70px;
+    padding:15px;
+  }
+
+  .students-page h1{
+    font-size:22px;
+  }
+
+  .students-table-wrapper{
+    overflow-x:auto;
+  }
+
+  .students-table{
+    min-width:700px;
+  }
+
+  .students-table th,
+  .students-table td{
+    padding:10px;
+    font-size:13px;
+  }
+
+  .student-img{
+    width:36px;
+    height:36px;
+  }
+
+  .delete-student-btn{
+    padding:7px 12px;
+    font-size:12px;
+    white-space:nowrap;
+  }
+
+}
+
+
+/* ==========================
+   SMALL MOBILE (480px)
+========================== */
+@media (max-width:480px){
+
+  .students-page{
+    padding:10px;
+  }
+
+  .students-page h1{
+    font-size:20px;
+    padding:10px;
+  }
+
+  .students-table{
+    min-width:650px;
+  }
+
+  .students-table th,
+  .students-table td{
+    padding:8px;
+    font-size:12px;
+  }
+
+  .student-img{
+    width:32px;
+    height:32px;
+  }
+
+  .delete-student-btn{
+    padding:6px 10px;
+    font-size:11px;
+  }
+
+}

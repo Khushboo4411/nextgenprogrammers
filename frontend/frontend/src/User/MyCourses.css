@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mycourses-page {
+  margin-left: 280px;
+  padding: 90px 25px 25px;
+  min-height: 100vh;
+  background: #f8fafc;
+  transition: 0.3s;
+}
+
+.mycourses-page.expanded {
+  margin-left: 80px;
+}
+
+.mycourses-header {
+  background: #021049;
+  color: #fff;
+  text-align: center;
+  padding: 18px 25px;
+  margin: 20px auto 30px;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 1200px;
+
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  box-shadow: 0 10px 25px rgba(2, 16, 73, 0.2);
+  transition: all 0.3s ease;
+}
+
+.mycourses-header:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(2, 16, 73, 0.3);
+}
+
+.mycourses-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.mycourses-header p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.course-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(2, 16, 73, 0.08);
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.course-card-content {
+  padding: 20px;
+}
+
+.course-card-content h3 {
+  font-size: 22px;
+  color: #021049;
+  margin-bottom: 10px;
+}
+
+.course-card-content p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.course-btn {
+  width: 100%;
+  border: none;
+  background: #021049;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.course-btn:hover {
+  background: #0a1b6f;
+}
+
+@media (max-width: 1200px) {
+  .course-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mycourses-page,
+  .mycourses-page.expanded {
+    margin-left: 0;
+    padding: 90px 15px 20px;
+  }
+
+  .course-container {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+}

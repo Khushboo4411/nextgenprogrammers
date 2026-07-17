@@ -1,0 +1,179 @@
+.admin-notification-page {
+  margin-left: 260px;
+  padding: 100px 30px 30px;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* ==========================
+   Top Section
+========================== */
+
+.admin-notification-top {
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+  margin-bottom: 25px;
+}
+
+.admin-notification-top h1 {
+ text-align: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #021049;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.admin-notification-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.admin-mark-read-btn,
+.admin-clear-btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.admin-mark-read-btn {
+  background: #021049;
+}
+
+.admin-mark-read-btn:hover {
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+.admin-clear-btn {
+  background: #e53935;
+}
+
+.admin-clear-btn:hover {
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+/* ==========================
+   Notification Cards
+========================== */
+
+.admin-notification-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.admin-notification-card:hover {
+  transform: translateY(-3px);
+}
+
+.admin-unread-card {
+  border-left: 5px solid #ff9800;
+}
+
+/* ==========================
+   Card Header
+========================== */
+
+.admin-notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-notification-header h3 {
+  color: #021049;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.admin-notification-type {
+  background: #021049;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+/* ==========================
+   Card Body
+========================== */
+
+.admin-notification-card p {
+  margin: 15px 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.admin-notification-card small {
+  color: #888;
+  font-size: 13px;
+}
+
+/* ==========================
+   Empty Notification
+========================== */
+
+.admin-empty-box {
+  background: white;
+  padding: 60px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+  color: #666;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 768px) {
+
+  .admin-notification-page {
+    margin-left: 0;
+    padding: 90px 15px 20px;
+  }
+
+  .admin-notification-top h1 {
+    font-size: 26px;
+  }
+
+  .admin-notification-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .admin-notification-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .admin-notification-card {
+    padding: 15px;
+  }
+}

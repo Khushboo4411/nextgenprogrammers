@@ -532,6 +532,7 @@ app.post("/contactinfo", async (req, res) => {
 // ADMIN: Create new course
 app.post("/AddCompleteCourse", async (req, res) => {
   try {
+    // Check duplicate courseId
     const existingCourse = await CourseDetail.findOne({
       courseId: req.body.courseId,
     });
@@ -542,7 +543,8 @@ app.post("/AddCompleteCourse", async (req, res) => {
       });
     }
 
-    const Detail = new CourseDetail({
+    // Create course
+    const detail = new CourseDetail({
       courseId: req.body.courseId,
       image: req.body.image,
       title: req.body.title,
@@ -552,55 +554,48 @@ app.post("/AddCompleteCourse", async (req, res) => {
       price: req.body.price,
       discount: req.body.discount,
       tag: req.body.tag,
-    });
-
-// Admin notification
-await Notification.create({
-  title: "New Course Added",
-  message: `${detail.title} course added successfully.`,
-  type: "course",
-  link: "/courses",
-});
-
-// All users notification
-const users = await SignupSchema.find({
-  role: "user",
-});
-
-for (const user of users) {
-  await Notification.create({
-    userId: user._id,
-    title: "New Course Available",
-    message: `${detail.title} is now available for enrollment.`,
-    type: "course",
-    link: "/courses",
-  });
-}
-
-
-
-    const detail = new CourseDetail({
-      courseId: req.body.courseId,
-      image: req.body.image,
-      title: req.body.title,
-      description: req.body.description,
-      duration: req.body.duration,
-      rating: req.body.rating,
-      price: req.body.price,
       projects: req.body.projects || [],
       skills: req.body.skills || [],
     });
 
+    // Save course first
     await detail.save();
+
+    // Admin notification
+    await Notification.create({
+      title: "New Course Added",
+      message: `${detail.title} course added successfully.`,
+      type: "course",
+      link: "/courses",
+    });
+
+    // Find all users
+    const users = await SignupSchema.find({
+      role: "user",
+    });
+
+    // Send notification to all users
+    for (const user of users) {
+      await Notification.create({
+        userId: user._id,
+        title: "New Course Available",
+        message: `${detail.title} is now available for enrollment.`,
+        type: "course",
+        link: "/courses",
+      });
+    }
 
     res.status(201).json({
       message: "Course Added Successfully",
+      course: detail,
     });
+
   } catch (error) {
-    console.log(error);
+    console.log("ADD COURSE ERROR:", error);
 
     res.status(500).json({
-      message: "Error",
+      message: "Error adding course",
+      error: error.message,
     });
   }
 });
@@ -1053,14 +1048,14 @@ app.post("/EnrollCourse", async (req, res) => {
       title: "Course Enrolled",
       message: "Course enrolled successfully.",
       type: "course",
-      link: "/my-courses"
+      link: "/mycourses"
     });
 
     await Notification.create({
       title: "Course Enrolled",
       message: `${user?.name || "User"} enrolled in ${courseId}.`,
       type: "course",
-      link: "/admin/enrollments"
+      link: "/Admin/AdminEnrollment"
     });
 
     console.log("Notifications created");

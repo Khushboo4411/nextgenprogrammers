@@ -1264,6 +1264,37 @@ app.delete("/enrollments/:id", async (req, res) => {
 });
 
 // ========== NOTIFICATION APIs (User/Admin) ==========
+app.get("/user/notifications/:userId", async (req, res) => {
+  try {
+    const notifications = await Notification.find({
+      userId: req.params.userId
+    }).sort({ createdAt: -1 });
+
+    res.json(notifications);
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      message: "Failed to fetch user notifications"
+    });
+  }
+});
+app.get("/admin/notifications", async (req, res) => {
+  try {
+    const notifications = await Notification.find({
+      userId: { $exists: false }
+    }).sort({ createdAt: -1 });
+
+    res.json(notifications);
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      message: "Failed to fetch admin notifications"
+    });
+  }
+});
+
 
 // ADMIN: Get all notifications
 app.get("/admin/notifications", async (req, res) => {

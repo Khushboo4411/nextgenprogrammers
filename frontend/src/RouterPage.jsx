@@ -25,7 +25,6 @@ import Students from "./Admin/Students";
 import Profile from "./User/Profile";
 import MyCourses from "./User/MyCourses";
 import Assignments from "./User/Assignments";
-import UpcomingClasses from "./User/UpcomingClasses";
 import Notification from "./User/Notification";
 import AdminNotification from "./Admin/Notifications";
 import AdminEnrollment from "./Admin/AdminEnrollment";
@@ -75,14 +74,7 @@ function RouterPage() {
   }
 />
 
-<Route
-  path="/upcoming-classes"
-  element={
-    <UserProtectedRoute>
-      <UpcomingClasses />
-    </UserProtectedRoute>
-  }
-/>
+
 
 <Route
   path="/notifications"

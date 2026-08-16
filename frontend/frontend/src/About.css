@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-about-page {
+  background: linear-gradient(180deg, #f8f9fc, #eef1ff);
+  color: #1a1a1a;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HERO SECTION */
+.about-about-hero {
+  max-width: 1300px;
+  margin: auto;
+  padding: 80px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  
+}
+
+.about-hero-content {
+  flex: 1;
+  margin-top: 30px;
+  
+}
+
+.about-section-tag {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(63, 81, 181, 0.12);
+  color: #3f51b5;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  border: 1px solid rgba(63, 81, 181, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.about-hero-content h1 {
+  font-size: 58px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.about-hero-content h1 span {
+  color: #6c63ff;
+}
+
+.about-hero-content p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 550px;
+  margin-bottom: 35px;
+}
+
+/* BUTTONS */
+.about-hero-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.about-primary-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #3f51b5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.about-primary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.about-secondary-btn {
+  padding: 14px 28px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.about-secondary-btn:hover {
+  color: #3f51b5;
+  border-color: #3f51b5;
+}
+
+/* IMAGE */
+.about-hero-image {
+  flex: 1;
+  position: relative;
+  
+}
+
+.about-hero-image img {
+  width: 100%;
+  border-radius: 35px;
+  object-fit: cover;
+  margin-top:70px;
+}
+
+.about-floating-card {
+  position: absolute;
+  right: -15px;
+  bottom: -40px;   /* image ke niche le jane ke liye */
+
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.about-floating-card svg {
+  font-size: 30px;
+  color: #3f51b5;
+  margin-bottom: 8px;
+}
+
+.about-floating-card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.about-floating-card span {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.2;
+}
+
+/* WHO WE ARE */
+.about-who-we-are {
+  max-width: 1300px;
+  margin: auto;
+  padding: 80px 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.about-who-content h2 {
+  font-size: 46px;
+  margin: 20px 0;
+}
+
+.about-who-content span {
+  color: #3f51b5;
+}
+
+.about-who-content p {
+  color: #555;
+  line-height: 1.8;
+}
+
+/* MISSION CARDS */
+.about-mission-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 80px;
+}
+
+.about-info-card {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.about-info-card:hover {
+  transform: translateY(-6px);
+}
+
+.about-icon {
+  font-size: 40px;
+  color: #3f51b5;
+}
+
+
+/* EXPERTS */
+.about-experts-section {
+  max-width: 1300px;
+  margin: auto;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.about-experts-section h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+.about-experts-section span {
+  color: #6c63ff;
+}
+
+.about-experts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.about-expert-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.about-expert-card:hover {
+  transform: translateY(-8px);
+}
+
+.about-expert-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+/* CTA */
+.about-cta-section {
+  max-width: 1300px;
+  margin: 0 auto 80px;
+  padding: 50px 5%;
+  border-radius: 30px;
+  background: #3f51b5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.about-cta-btn {
+  background: white;
+  color: #3f51b5;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.about-cta-btn:hover {
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .about-about-hero,
+  .about-who-we-are,
+  .about-cta-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-stats-section,
+  .about-experts-grid,
+  .about-testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-stats-section,
+  .about-experts-grid,
+  .about-testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-content h1 {
+    font-size: 36px;
+  }
+}

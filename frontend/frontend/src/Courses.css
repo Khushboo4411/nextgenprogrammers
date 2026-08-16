@@ -1,0 +1,367 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* ================= DASHBOARD ================= */
+
+
+.admin-categories {
+  margin-top: 10px;
+  margin-bottom: 20px;
+} 
+.courses-area{
+  width:100%;
+  padding:20px;
+}
+
+.dashboard-content.expanded{
+  transition:.3s;
+}
+
+/* USER PANEL */
+
+.dashboard-content:not(.admin-dashboard-content){
+  margin-left:250px;
+  margin-top:80px;
+}
+
+.dashboard-content:not(.admin-dashboard-content).expanded{
+  margin-left:80px;
+}
+
+/* ADMIN PANEL */
+
+
+.admin-dashboard-content.expanded{
+  margin-left:0;
+  width:100%;
+}
+/* Admin Courses Page */
+.admin-dashboard-content .course-container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  padding:20px;
+}
+
+.admin-dashboard-content .course-card{
+  max-width:300px;
+  width:100%;
+  margin:auto;
+}
+
+.admin-dashboard-content .courses-area{
+  margin:0;
+  padding:20px;
+}
+
+/* ================= HERO ================= */
+
+.course-header{
+  margin-top:80px;
+  min-height:32vh;
+  background: #021049;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:50px 20px;
+  color:white;
+}
+
+.course-header-content{
+  max-width:750px;
+}
+
+.course-label{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:25px;
+  background:rgba(255,255,255,.15);
+  color:#dbeafe;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.course-heading{
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.course-heading span{
+  color:#6c63ff;
+}
+
+.course-description-text{
+  color:#dbeafe;
+  line-height:1.7;
+}
+
+/* ================= CATEGORY ================= */
+
+.course-categories-section{
+  background:white;
+  border-bottom:1px solid #e5e7eb;
+   margin:0;
+  padding:15px 20px;
+}
+
+.course-categories{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.course-categories button{
+  padding:12px 24px;
+  border-radius:30px;
+  border:1px solid #dbeafe;
+  background:white;
+  cursor:pointer;
+  font-weight:600;
+   color:#021049;
+  border:2px solid #021049;
+  transition:.3s;
+}
+
+.course-active{
+  background:#021049 !important;
+  color:white !important;
+}
+
+
+.course-categories button:hover{
+  background:#021049;
+  color:#fff;
+}
+
+
+
+/* ================= ADMIN BUTTONS ================= */
+
+.admin-course-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+  padding:20px;
+  background:white;
+}
+
+.admin-course-actions button{
+  border:none;
+  color:white;
+  padding:12px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.add-btn{
+  background:#22c55e;
+  padding:10px 15px;
+  border-radius: 10px;
+  color: white;
+  border-color: transparent;
+}
+
+.edit-btn{
+  background:#3b82f6;
+  padding:10px 15px;
+  border-radius: 10px;
+  color: white;
+  border-color: transparent;
+}
+
+.delete-btn{
+  background:#ef4444;
+  padding:10px 15px;
+  border-radius: 10px;
+  color: white;
+  border-color: transparent;
+
+}
+
+
+
+/* ================= COURSES GRID ================= */
+
+.course-container{
+  padding:25px;
+  display:grid;
+  gap:25px;
+}
+
+/* PUBLIC */
+
+.course-container{
+  grid-template-columns:repeat(3,1fr);
+}
+
+/* USER */
+
+.dashboard-content .course-container{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.dashboard-content.expanded .course-container{
+  grid-template-columns:repeat(4,1fr);
+}
+
+/* ADMIN ALWAYS 3 */
+
+.admin-dashboard-content .course-container{
+  grid-template-columns:repeat(3,1fr) !important;
+}
+
+/* ================= CARD ================= */
+
+.course-card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(2,16,73,.08);
+  transition:.3s;
+  width:100%;
+  max-width:353px;
+  margin:0 auto;
+}
+
+.course-card:hover{
+  transform:translateY(-6px);
+}
+
+.course-card-image{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.course-card-content{
+  padding:20px;
+}
+
+.course-card-tag{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:20px;
+  background:#e0f2fe;
+  color:#0369a1;
+  font-size:12px;
+  font-weight:700;
+}
+
+.course-card-title{
+  margin:12px 0;
+  font-size:22px;
+  font-weight:700;
+}
+
+.course-card-description{
+  color:#6b7280;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+.course-card-info{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.course-card-rating{
+  color:#f59e0b;
+  font-weight:700;
+}
+
+.course-price-detail{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.course-price{
+  font-size:1.4rem;
+  font-weight:800;
+  color:#021049;
+}
+
+.course-discount{
+  color:#16a34a;
+  font-weight:700;
+}
+
+.course-btn{
+  width:100%;
+  border:none;
+  background:#3f51b5;
+  color:white;
+  padding:13px;
+  border-radius:10px;
+  cursor:pointer;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+/* ================= LOADER ================= */
+
+.admin-loader{
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+.spinner{
+  width:60px;
+  height:60px;
+  border:5px solid #dbeafe;
+  border-top:5px solid #021049;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1024px){
+
+  .course-container,
+  .admin-dashboard-content .course-container{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+}
+
+@media(max-width:768px){
+
+  .dashboard-content,
+  .dashboard-content.expanded,
+  .admin-dashboard-content{
+    margin-left:0;
+    width:100%;
+  }
+
+  .course-container,
+  .admin-dashboard-content .course-container{
+    grid-template-columns:1fr !important;
+  }
+
+  .course-heading{
+    font-size:2rem;
+  }
+}

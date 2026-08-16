@@ -1,0 +1,211 @@
+.user-profile-content {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 500px;
+  margin-top:100px;
+  margin-left: 550px;
+}
+
+.user-profile-card {
+  width: 100%;
+  max-width: 550px; 
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0d6efd;
+  margin-bottom: 10px;
+}
+
+.user-profile-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.user-profile-form {
+  width: 100%;
+}
+
+.user-profile-group {
+  margin-bottom: 15px;
+}
+
+.user-profile-group label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.user-profile-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.user-profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.user-edit-btn,
+.user-save-btn,
+.user-cancel-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.user-edit-btn {
+  background: #0d6efd;
+  color: #fff;
+}
+
+.user-save-btn {
+  background: #198754;
+  color: #fff;
+}
+
+.user-cancel-btn {
+  background: #dc3545;
+  color: #fff;
+}
+
+/* ==========================
+   LARGE TABLET
+========================== */
+@media (max-width:992px){
+
+  .user-profile-content{
+    margin-left:80px;
+    margin-top:90px;
+    max-width:100%;
+    padding:25px 20px;
+    justify-content:center;
+  }
+
+  .user-profile-card{
+    max-width:550px;
+  }
+
+}
+
+/* ==========================
+   TABLET
+========================== */
+@media (max-width:768px){
+
+  .user-profile-content{
+    margin-left:0;
+    margin-top:85px;
+    max-width:100%;
+    padding:20px 15px;
+  }
+
+  .user-profile-card{
+    max-width:100%;
+    padding:22px;
+    border-radius:15px;
+  }
+
+  .user-profile-header h2{
+    font-size:22px;
+  }
+
+  .user-profile-image{
+    width:90px;
+    height:90px;
+  }
+
+  .user-profile-group label{
+    font-size:14px;
+  }
+
+  .user-profile-group input{
+    padding:12px;
+    font-size:14px;
+  }
+
+  .user-profile-buttons{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .user-edit-btn,
+  .user-save-btn,
+  .user-cancel-btn{
+    width:100%;
+    padding:12px;
+  }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+@media (max-width:480px){
+
+  .user-profile-content{
+    padding:15px 12px;
+    margin-top:80px;
+  }
+
+  .user-profile-card{
+    padding:18px;
+    border-radius:12px;
+  }
+
+  .user-profile-header h2{
+    font-size:20px;
+  }
+
+  .user-profile-image{
+    width:80px;
+    height:80px;
+  }
+
+  .user-profile-group{
+    margin-bottom:14px;
+  }
+
+  .user-profile-group label{
+    font-size:13px;
+  }
+
+  .user-profile-group input{
+    font-size:13px;
+    padding:10px;
+  }
+
+  .user-edit-btn,
+  .user-save-btn,
+  .user-cancel-btn{
+    font-size:14px;
+  }
+
+}

@@ -665,7 +665,7 @@ app.put("/UpdateCompleteCourse/:courseId", async (req, res) => {
     );
    
 await Notification.create({
-  title: "Updated Course Added",
+  title: "Course Updated  ",
   message: `${CourseDetail.title} course updated successfully.`,
   type: "course",
     link: "/courses"
@@ -686,7 +686,11 @@ await Notification.create({
 // ADMIN: Delete course
 app.delete("/Courses/:id", async (req, res) => {
   try {
+    console.log("DELETE COURSE ID:", req.params.id);
+
     const deletedCourse = await Course.findByIdAndDelete(req.params.id);
+
+    console.log("DELETED COURSE:", deletedCourse);
 
     if (!deletedCourse) {
       return res.status(404).json({
@@ -694,10 +698,14 @@ app.delete("/Courses/:id", async (req, res) => {
       });
     }
 
-    await CourseDetail.findOneAndDelete({
-      courseId: deletedCourse.courseId,
-    });
+    // Delete CourseDetail only if courseId exists
+    if (deletedCourse.courseId) {
+      await CourseDetail.findOneAndDelete({
+        courseId: deletedCourse.courseId,
+      });
+    }
 
+    // Notification
     await Notification.create({
       title: "Course Deleted",
       message: `${deletedCourse.title} course deleted by admin.`,
@@ -705,23 +713,16 @@ app.delete("/Courses/:id", async (req, res) => {
       link: "/courses",
     });
 
-    //user notification for course deletion
-    await Notification.create({
-  userId: updatedUser._id,
-      title: "Course Deleted",
-      message: `${deletedCourse.title} course has been deleted.`,
-      type: "course",
-      link: "/courses",
-    });
-
-    res.json({
+    return res.status(200).json({
       message: "Course Deleted Successfully",
     });
-  } catch (error) {
-    console.log(error);
 
-    res.status(500).json({
-      message: "Failed",
+  } catch (error) {
+    console.error("DELETE COURSE ERROR:", error);
+
+    return res.status(500).json({
+      message: "Failed to delete course",
+      error: error.message,
     });
   }
 });

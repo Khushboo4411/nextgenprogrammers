@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -7,137 +7,246 @@ import {
   FaBookOpen,
   FaUsers,
   FaClipboardList,
-  
   FaEnvelope,
   FaUserCircle,
   FaSignOutAlt,
- 
   FaBell,
-  FaArrowLeft
+  FaArrowLeft,
 } from "react-icons/fa";
+
 import {
   ToastContainer,
   toast,
 } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-
 import "./AdminNavbar.css";
 
 function AdminNavbar() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [notificationCount, setNotificationCount] =
-    useState(0);
-
-  useEffect(() => {
-    fetchNotificationCount();
-  }, []);
 
   const navigate = useNavigate();
 
-  const adminName =
-    sessionStorage.getItem("name") || "Admin";
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  const adminEmail =
-    sessionStorage.getItem("email") ||
-    "admin@gmail.com";
+  const [notificationCount, setNotificationCount] =
+    useState(0);
 
-  const profileImage =
-    sessionStorage.getItem("profileImage");
-
-  // ==========================
-  // Admin Protection
-  // ==========================
-
-  
- 
-
-const logout = () => {
-
-  console.log("Logout clicked");
-
-  const confirmLogout =
-    window.confirm(
-      "Are you sure you want to logout?"
-    );
-
-  console.log(confirmLogout);
-
-  if (!confirmLogout)
-    return;
-
-  localStorage.removeItem(
-    "token"
+  const [adminName, setAdminName] = useState(
+    sessionStorage.getItem("name") || "Admin"
   );
 
-  sessionStorage.clear();
-  localStorage.clear();
-
-  navigate("/", {
-    replace: true,
-  });
-
-  // window.location.reload();
-};
-
-const fetchNotificationCount = async () => {
-  const res = await axios.get(
-    "https://nextgenprogrammers.onrender.com/admin/notification-count"
+  const [adminEmail, setAdminEmail] = useState(
+    sessionStorage.getItem("email") || "admin@gmail.com"
   );
 
-  setNotificationCount(res.data.count);
-};
+  const [profileImage, setProfileImage] = useState(
+    sessionStorage.getItem("profileImage") || ""
+  );
 
-useEffect(() => {
+  const userId = sessionStorage.getItem("userId");
 
-  fetchNotificationCount();
-  fetchNotificationPopup();
-
-  const interval =
-    setInterval(() => {
-
-      fetchNotificationCount();
-      fetchNotificationPopup();
-
-    }, 5000);
-
-  return () =>
-    clearInterval(
-      interval
-    );
-
-}, []);
+  const API_URL =
+    "https://nextgenprogrammers.onrender.com";
 
 
-const fetchNotificationPopup =
-  async () => {
+  /* =====================================================
+     PROFILE IMAGE URL
+  ===================================================== */
+
+  const getImageUrl = (image) => {
+
+    if (!image) {
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(
+        adminName
+      )}&background=021049&color=ffffff`;
+    }
+
+    // Already complete URL
+    if (
+      image.startsWith("http://") ||
+      image.startsWith("https://")
+    ) {
+      return image;
+    }
+
+    // Relative URL like /uploads/profile.jpg
+    if (image.startsWith("/")) {
+      return `${API_URL}${image}`;
+    }
+
+    // Relative URL like uploads/profile.jpg
+    return `${API_URL}/${image}`;
+  };
+
+
+  /* =====================================================
+     FETCH ADMIN PROFILE
+  ===================================================== */
+
+  const fetchProfile = useCallback(async () => {
+
+    if (!userId) {
+      console.log("User ID not found");
+      return;
+    }
+
     try {
-      const res =
-        await axios.get(
-          "https://nextgenprogrammers.onrender.com/admin/notifications"
+
+      const res = await axios.get(
+        `${API_URL}/UserProfile/${userId}`
+      );
+
+      console.log("ADMIN PROFILE:", res.data);
+
+      const name =
+        res.data.name || "Admin";
+
+      const email =
+        res.data.email || "admin@gmail.com";
+
+      const image =
+        res.data.profileImage || "";
+
+      setAdminName(name);
+      setAdminEmail(email);
+      setProfileImage(image);
+
+      // Update sessionStorage
+      sessionStorage.setItem("name", name);
+      sessionStorage.setItem("email", email);
+      sessionStorage.setItem(
+        "profileImage",
+        image
+      );
+
+    } catch (error) {
+
+      console.log(
+        "Profile fetch error:",
+        error
+      );
+
+    }
+
+  }, [userId]);
+
+
+  /* =====================================================
+     LOAD PROFILE
+  ===================================================== */
+
+  useEffect(() => {
+
+    fetchProfile();
+
+  }, [fetchProfile]);
+
+
+  /* =====================================================
+     LISTEN FOR PROFILE UPDATE
+  ===================================================== */
+
+  useEffect(() => {
+
+    const handleProfileUpdate = () => {
+
+      const name =
+        sessionStorage.getItem("name") ||
+        "Admin";
+
+      const email =
+        sessionStorage.getItem("email") ||
+        "admin@gmail.com";
+
+      const image =
+        sessionStorage.getItem("profileImage") ||
+        "";
+
+      setAdminName(name);
+      setAdminEmail(email);
+      setProfileImage(image);
+
+      // API se latest profile bhi lao
+      fetchProfile();
+    };
+
+    window.addEventListener(
+      "profileUpdated",
+      handleProfileUpdate
+    );
+
+    return () => {
+      window.removeEventListener(
+        "profileUpdated",
+        handleProfileUpdate
+      );
+    };
+
+  }, [fetchProfile]);
+
+
+  /* =====================================================
+     NOTIFICATION COUNT
+  ===================================================== */
+
+  const fetchNotificationCount =
+    async () => {
+
+      try {
+
+        const res =
+          await axios.get(
+            `${API_URL}/admin/notification-count`
+          );
+
+        setNotificationCount(
+          res.data.count || 0
         );
 
-      const unread =
-        res.data.filter(
-          (item) =>
-            !item.isRead
+      } catch (error) {
+
+        console.log(
+          "Notification count error:",
+          error
         );
 
-      unread.forEach(
-        (item) => {
+      }
+
+    };
+
+
+  /* =====================================================
+     NOTIFICATION POPUP
+  ===================================================== */
+
+  const fetchNotificationPopup =
+    async () => {
+
+      try {
+
+        const res =
+          await axios.get(
+            `${API_URL}/admin/notifications`
+          );
+
+        const unread =
+          res.data.filter(
+            (item) => !item.isRead
+          );
+
+        unread.forEach((item) => {
+
           const alreadyShown =
             sessionStorage.getItem(
               `toast_${item._id}`
             );
 
-          if (
-            !alreadyShown
-          ) {
+          if (!alreadyShown) {
+
             toast.info(
               `${item.title}\n${item.message}`,
               {
-                position:
-                  "top-right",
+                position: "top-right",
                 autoClose: 4000,
               }
             );
@@ -147,50 +256,134 @@ const fetchNotificationPopup =
               "shown"
             );
           }
-        }
+
+        });
+
+      } catch (error) {
+
+        console.log(
+          "Notification popup error:",
+          error
+        );
+
+      }
+
+    };
+
+
+  /* =====================================================
+     NOTIFICATION INTERVAL
+  ===================================================== */
+
+  useEffect(() => {
+
+    fetchNotificationCount();
+    fetchNotificationPopup();
+
+    const interval =
+      setInterval(() => {
+
+        fetchNotificationCount();
+        fetchNotificationPopup();
+
+      }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+
+  }, []);
+
+
+  /* =====================================================
+     OPEN NOTIFICATIONS
+  ===================================================== */
+
+  const openNotifications =
+    async () => {
+
+      try {
+
+        await axios.put(
+          `${API_URL}/admin/notifications/read-all`
+        );
+
+        setNotificationCount(0);
+
+        navigate(
+          "/admin/notifications"
+        );
+
+      } catch (error) {
+
+        console.log(error);
+
+      }
+
+    };
+
+
+  /* =====================================================
+     LOGOUT
+  ===================================================== */
+
+  const logout = () => {
+
+    const confirmLogout =
+      window.confirm(
+        "Are you sure you want to logout?"
       );
-    } catch (error) {
-      console.log(error);
+
+    if (!confirmLogout) {
+      return;
     }
+
+    sessionStorage.clear();
+    localStorage.clear();
+
+    navigate("/", {
+      replace: true,
+    });
+
   };
 
 
+  /* =====================================================
+     PROFILE IMAGE ERROR
+  ===================================================== */
 
-const openNotifications = async () => {
-  try {
+  const handleImageError = (e) => {
 
-    await axios.put(
-      "https://nextgenprogrammers.onrender.com/admin/notifications/read-all"
-    );
+    e.target.src =
+      `https://ui-avatars.com/api/?name=${encodeURIComponent(
+        adminName
+      )}&background=021049&color=ffffff`;
 
-    // badge ko turant 0 dikhao
-    setNotificationCount(0);
-
-    navigate("/admin/notifications");
-
-  } catch (error) {
-    console.log(error);
-  }
-};
+  };
 
 
   return (
     <>
-      {/* Top Navbar */}
+
+      {/* =================================================
+          TOP NAVBAR
+      ================================================= */}
 
       <div className="admin-top-navbar">
+
+        {/* LEFT */}
+
         <div className="admin-navbar-left">
+
           <button
-                      className="back-btn"
-                      onClick={() =>
-                        navigate(-1)
-                      }
-                    >
-                      <FaArrowLeft />
-                    </button>
+            className="back-btn"
+            onClick={() => navigate(-1)}
+          >
+            <FaArrowLeft />
+          </button>
+
           <div
             className="admin-menu-icon"
-            
             onClick={() =>
               setSidebarOpen(!sidebarOpen)
             }
@@ -201,46 +394,70 @@ const openNotifications = async () => {
           <h2 className="admin-brand">
             🎓 NextGen Admin
           </h2>
+
         </div>
 
-        
-        {/* Right Side */}
 
-        <div className="admin-navbar-right ">
-       <div
-  className="admin-notification"
-  onClick={openNotifications}
->
-  <FaBell />
+        {/* RIGHT */}
 
-  {notificationCount > 0 && (
-    <span>{notificationCount}</span>
-  )}
-</div>
+        <div className="admin-navbar-right">
 
-<div
-  className="admin-profile"
-  onClick={() => navigate("/Admin/Profile")}
->
-  <img
-    src={
-      sessionStorage.getItem("profileImage") ||
-      `https://ui-avatars.com/api/?name=${
-        sessionStorage.getItem("name")
-      }`
-    }
-    alt="profile"
-    className="navbar-profile"
-  />
+          {/* Notification */}
 
-  <span className="admin-tooltip">
-    {sessionStorage.getItem("name")}
-  </span>
-</div>
+          <div
+            className="admin-notification"
+            onClick={openNotifications}
+          >
+
+            <FaBell />
+
+            {notificationCount > 0 && (
+              <span>
+                {notificationCount}
+              </span>
+            )}
+
+          </div>
+
+
+          {/* Profile */}
+
+          <div
+            className="admin-profile"
+            onClick={() =>
+              navigate("/Admin/Profile")
+            }
+          >
+
+            <img
+              src={getImageUrl(profileImage)}
+              alt="Admin Profile"
+              className="navbar-profile"
+              onError={handleImageError}
+            />
+
+            <div className="admin-tooltip">
+
+              <h4>
+                {adminName}
+              </h4>
+
+              <p>
+                {adminEmail}
+              </p>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* Sidebar */}
+
+      {/* =================================================
+          SIDEBAR
+      ================================================= */}
 
       <div
         className={
@@ -249,6 +466,7 @@ const openNotifications = async () => {
             : "admin-sidebar admin-collapsed"
         }
       >
+
         <div className="admin-sidebar-menu">
 
           <Link
@@ -256,75 +474,103 @@ const openNotifications = async () => {
             className="admin-nav-link"
           >
             <FaTachometerAlt />
-            <span>Dashboard</span>
+            <span>
+              Dashboard
+            </span>
           </Link>
+
 
           <Link
             to="/Courses"
             className="admin-nav-link"
           >
             <FaBookOpen />
-            <span>Courses</span>
+            <span>
+              Courses
+            </span>
           </Link>
+
 
           <Link
             to="/Admin/Students"
             className="admin-nav-link"
           >
             <FaUsers />
-            <span>Students</span>
+            <span>
+              Students
+            </span>
           </Link>
+
 
           <Link
             to="/Admin/AdminEnrollment"
             className="admin-nav-link"
           >
             <FaClipboardList />
-            <span>Enrollments</span>
+            <span>
+              Enrollments
+            </span>
           </Link>
 
-         
 
           <Link
             to="/Admin/Messages"
             className="admin-nav-link"
           >
             <FaEnvelope />
-            <span>Messages</span>
+            <span>
+              Messages
+            </span>
           </Link>
+
 
           <Link
             to="/Admin/Profile"
             className="admin-nav-link"
           >
             <FaUserCircle />
-            <span>Profile</span>
+            <span>
+              Profile
+            </span>
           </Link>
+
         </div>
 
-        {/* Logout */}
+
+        {/* LOGOUT */}
 
         <div className="admin-logout-section">
+
           <button
             className="admin-logout-btn"
             onClick={logout}
           >
+
             <FaSignOutAlt />
-            <span>Logout</span>
+
+            <span>
+              Logout
+            </span>
+
           </button>
+
         </div>
+
       </div>
+
+
+      {/* TOAST */}
+
       <ToastContainer
-  position="top-right"
-  autoClose={4000}
-  newestOnTop
-  closeOnClick
-  pauseOnHover
-/>
+        position="top-right"
+        autoClose={4000}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+      />
+
     </>
-    
   );
-  
 }
 
 export default AdminNavbar;

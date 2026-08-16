@@ -113,10 +113,9 @@ useEffect(() => {
   if (!window.confirm("Delete this course?")) return;
 
   try {
-    await axios.delete(
-      `https://nextgenprogrammers.onrender.com/CourseDetails/${id}`
-    );
-
+   await axios.delete(
+  `https://nextgenprogrammers.onrender.com/Courses/${id}`
+);
     fetchCourses();
     
     alert("Course Deleted Successfully");
